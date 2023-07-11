@@ -7,7 +7,7 @@ This repository contains code for implementing various operations with mouse
 <img src="images/problem-statement.png" />
 
 
-##### Here are outputs
+# Here are outputs
 
 ## Case 1 :- Check if mouse is available or not
 
