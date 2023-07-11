@@ -9,19 +9,11 @@ This repository contains code for implementing various operations with mouse
 
 # Here are outputs
 
+<img src="images/case1.png" />
+
+<img src="images/case2.png" />
+
 <table>
-  <tr>
-    <th>Case 1</th>
-    <th>Case 2</th>
-  </tr>
-  <tr>
-    <td>
-      <img src="images/case1.png" />
-    </td>
-    <td>
-      <img src="images/case2.png" />
-    </td>
-  </tr>
   <tr>
     <th>Case 3</th>
     <th>Case 4</th>
