@@ -45,8 +45,6 @@ void main()
 			}
 			break;
 		case 3:
-			initgraph(&gd, &gm, "C;\\TC\\BGI");
-			settextstyle(DEFAULT_FONT, 0, 2);
 			i.x.ax = 0;
 			int86(0X33, &i, &o);
 			val = (o.x.ax);
@@ -59,31 +57,23 @@ void main()
 				i.x.ax = 1;
 				int86(0X33, &i, &o);
 				getch();
-				i.x.ax = 3;
-				int86(0X33, &i, &o);
-				button = o.x.ax;
-				x = o.x.cx;
-				y = o.x.dx;
-				while (!kbhit())
+				while (1)
 				{
-					i.x.ax = 3;
+					i.x.ax=0;
 					int86(0X33, &i, &o);
-					button = o.x.cx;
-					x = o.x.cx;
-					y = o.x.dx;
-					if (button == 1)
+					if (o.x.bx & 1)
 					{
-						button = -1;
-						cleardevice();
-						sprintf(array, "Left mouse button is clicked...\nrow:-%d col:-%d\n", x, y);
-						outtext(array);
+						printf("Left mouse button is clicked\n");
+						break;
 					}
-					else
+					else if(o.x.bx & 2)
 					{
-						button = -1;
-						cleardevice();
-						sprintf(array, "Right mouse button is clicke....\nrow;-%d col:-%d\n", x, y);
-						outtext(array);
+						printf("Right mouse button is clicked\n");
+						break;
+					}
+					else if(o.x.bx & 4){
+						printf("Middle mouse button is clicked\n");
+						break;
 					}
 				}
 			}
