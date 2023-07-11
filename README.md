@@ -19,10 +19,12 @@ This repository contains code for implementing various operations with mouse
 <img src="images/case2.png" />
 <br>
 <br>
+
 ### Case 3 - To check which mouse button is clicked
 <img src="images/case3.png" />
 <br>
 <br>
+
 ### Case 4 - To find the position of cursor
 <img src="images/case4.png" />
 <br>
