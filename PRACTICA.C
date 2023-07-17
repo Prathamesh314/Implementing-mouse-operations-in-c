@@ -57,22 +57,29 @@ void main()
 				i.x.ax = 1;
 				int86(0X33, &i, &o);
 				getch();
-				while (1)
+
+				i.x.ax = 3;
+				int86(0X33, &i, &o);
+				button = o.x.bx;
+				x = o.x.cx;
+				y = o.x.dx;
+				while (!kbhit())
 				{
-					i.x.ax=0;
+					i.x.ax = 3;
 					int86(0X33, &i, &o);
-					if (o.x.bx & 1)
+					button = o.x.bx;
+					x = o.x.cx;
+					y = o.x.dx;
+					if (button == 1)
 					{
+						button = -1;
 						printf("Left mouse button is clicked\n");
 						break;
 					}
-					else if(o.x.bx & 2)
+					else if(button == 2)
 					{
+						button = -1;
 						printf("Right mouse button is clicked\n");
-						break;
-					}
-					else if(o.x.bx & 4){
-						printf("Middle mouse button is clicked\n");
 						break;
 					}
 				}
